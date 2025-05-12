@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="isLogin = true">Login</button>
+    <button @click="isLogin = false">Register</button>
+    <LoginR v-if="isLogin" />
+    <RegisterL v-else />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LoginR from './views/LoginR.vue'
+import RegisterL from './views/RegisterL.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    LoginR,
+    RegisterL
+  },
+  data() {
+    return {
+      isLogin: true
+    };
   }
 }
 </script>
